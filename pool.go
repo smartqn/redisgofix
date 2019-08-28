@@ -25,7 +25,7 @@ import (
 	"sync"
 	"time"
 
-	"smartqn/redisgofix/fix"
+	"github.com/smartqn/redisgofix/fix"
 )
 
 var nowFunc = time.Now // for testing
