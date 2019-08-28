@@ -26,6 +26,8 @@ import (
 	"strconv"
 	"sync"
 	"time"
+
+	"github.com/linnv/logx"
 )
 
 // conn is the low-level implementation of Conn
@@ -545,6 +547,7 @@ func (c *conn) Do(cmd string, args ...interface{}) (interface{}, error) {
 		for i := range reply {
 			r, e := c.readReply()
 			if e != nil {
+				logx.Warnf("e: %+v\n", e)
 				return nil, c.fatal(e)
 			}
 			reply[i] = r
